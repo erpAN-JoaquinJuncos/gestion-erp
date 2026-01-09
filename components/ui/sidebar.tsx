@@ -17,7 +17,15 @@ const navigation = [
     { name: "Configuración", href: "/dashboard/configuracion", icon: Settings },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+    user?: {
+        name?: string | null;
+        email?: string | null;
+        image?: string | null;
+    };
+}
+
+export function Sidebar({ user }: SidebarProps) {
     const pathname = usePathname();
 
     return (
