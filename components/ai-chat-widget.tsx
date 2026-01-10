@@ -117,6 +117,26 @@ export default function AIChatWidget() {
                         ))}
                     </div>
 
+                    {/* Quick Chips */}
+                    <div className="px-4 py-2 flex gap-2 overflow-x-auto no-scrollbar">
+                        {["💰 Balance", "📈 Ventas", "🏆 Top", "📦 Stock", "💡 Oferta"].map((chip) => (
+                            <button
+                                key={chip}
+                                onClick={() => {
+                                    setInput(chip === "💰 Balance" ? "¿Cómo está la caja?" :
+                                        chip === "📈 Ventas" ? "¿Cómo van las ventas hoy?" :
+                                            chip === "🏆 Top" ? "¿Cuál es el producto más vendido?" :
+                                                chip === "📦 Stock" ? "¿Qué productos tienen poco stock?" :
+                                                    "Dame una idea de oferta"
+                                    );
+                                }}
+                                className="whitespace-nowrap bg-indigo-50 text-indigo-700 text-xs px-3 py-1.5 rounded-full hover:bg-indigo-100 transition-colors border border-indigo-100 dark:bg-gray-800 dark:text-indigo-300 dark:border-gray-700"
+                            >
+                                {chip}
+                            </button>
+                        ))}
+                    </div>
+
                     {/* Input */}
                     <div className="p-3 bg-white border-t border-gray-100 dark:bg-gray-900 dark:border-gray-800">
                         <form
