@@ -78,8 +78,8 @@ export default function AIChatWidget() {
                         {messages.map((m, i) => (
                             <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                                 <div className={`max-w-[85%] p-3 rounded-2xl text-sm whitespace-pre-line ${m.role === "user"
-                                        ? "bg-indigo-600 text-white rounded-br-none"
-                                        : "bg-white border border-gray-200 text-gray-800 rounded-bl-none shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+                                    ? "bg-indigo-600 text-white rounded-br-none"
+                                    : "bg-white border border-gray-200 text-gray-800 rounded-bl-none shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
                                     }`}>
                                     {m.content}
                                 </div>
@@ -92,6 +92,29 @@ export default function AIChatWidget() {
                                 </div>
                             </div>
                         )}
+                    </div>
+
+                    {/* Quick Chips */}
+                    <div className="px-4 py-2 flex gap-2 overflow-x-auto no-scrollbar">
+                        {["💰 Balance", "📈 Ventas", "🏆 Top", "📦 Stock", "💡 Oferta"].map((chip) => (
+                            <button
+                                key={chip}
+                                onClick={() => {
+                                    setInput(chip === "💰 Balance" ? "¿Cómo está la caja?" :
+                                        chip === "📈 Ventas" ? "¿Cómo van las ventas hoy?" :
+                                            chip === "🏆 Top" ? "¿Cuál es el producto más vendido?" :
+                                                chip === "📦 Stock" ? "¿Qué productos tienen poco stock?" :
+                                                    "Dame una idea de oferta"
+                                    );
+                                    // Optional: Auto-submit or just fill? Let's just fill for now to let user confirm.
+                                    // actually better to auto-send for "magic" feel, but let's stick to fill for safety or auto-call handleSend if state allows.
+                                    // Let's just fill input.
+                                }}
+                                className="whitespace-nowrap bg-indigo-50 text-indigo-700 text-xs px-3 py-1.5 rounded-full hover:bg-indigo-100 transition-colors border border-indigo-100 dark:bg-gray-800 dark:text-indigo-300 dark:border-gray-700"
+                            >
+                                {chip}
+                            </button>
+                        ))}
                     </div>
 
                     {/* Input */}

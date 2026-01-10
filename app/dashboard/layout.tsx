@@ -18,7 +18,7 @@ export default async function DashboardLayout({
     return (
         <div className="flex h-screen bg-gray-50 dark:bg-black transition-colors">
             <div className="hidden md:flex flex-col w-64 fixed inset-y-0 z-50">
-                <Sidebar user={session?.user} />
+                <Sidebar />
             </div>
 
             <div className="md:pl-64 flex flex-col flex-1 min-h-screen overflow-hidden">

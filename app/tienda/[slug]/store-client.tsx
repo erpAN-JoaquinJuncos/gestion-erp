@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Product } from "@/lib/product-service";
-import { ShoppingCart, MessageCircle, Plus, Minus, Trash2, MapPin } from "lucide-react";
+import { ShoppingCart, MessageCircle, Plus, Minus, Trash2, MapPin, Store } from "lucide-react";
 
 interface Props {
     products: Product[];
